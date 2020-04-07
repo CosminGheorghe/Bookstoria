@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "b2hazlfNeS8w8HzgrhJ4vJJkx7u8oH2K7QC4v4KaceOkUj6WOon+DoU0KVN0PEeGxpRa8LkLk/9ICoyJdtyWkg==",
+  "success": true,
+  "projectFilePath": "D:\\GitHubRepos\\Bookstoria\\Bookstoria\\Bookstoria.AplicationLogic\\Bookstoria.AplicationLogic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cosmin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Cosmin\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

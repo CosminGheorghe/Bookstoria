@@ -1,0 +1,12 @@
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\bin\Debug\netstandard2.0\Bookstoria.EFDataAccess.deps.json
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\bin\Debug\netstandard2.0\Bookstoria.EFDataAccess.dll
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\obj\Debug\netstandard2.0\Bookstoria.EFDataAccess.csprojAssemblyReference.cache
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\obj\Debug\netstandard2.0\Bookstoria.EFDataAccess.AssemblyInfoInputs.cache
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\obj\Debug\netstandard2.0\Bookstoria.EFDataAccess.AssemblyInfo.cs
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\bin\Debug\netstandard2.0\Bookstoria.EFDataAccess.pdb
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\bin\Debug\netstandard2.0\Bookstoria.AplicationLogic.dll
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\bin\Debug\netstandard2.0\Bookstoria.AplicationLogic.pdb
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\obj\Debug\netstandard2.0\Bookstoria.EFDataAccess.csproj.CoreCompileInputs.cache
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\obj\Debug\netstandard2.0\Bookstoria.EFDataAccess.csproj.CopyComplete
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\obj\Debug\netstandard2.0\Bookstoria.EFDataAccess.dll
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.EFDataAccess\obj\Debug\netstandard2.0\Bookstoria.EFDataAccess.pdb

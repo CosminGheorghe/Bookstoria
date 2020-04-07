@@ -1,0 +1,9 @@
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\bin\Debug\netstandard2.0\Bookstoria.AplicationLogic.deps.json
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\bin\Debug\netstandard2.0\Bookstoria.AplicationLogic.dll
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\bin\Debug\netstandard2.0\Bookstoria.AplicationLogic.pdb
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\obj\Debug\netstandard2.0\Bookstoria.AplicationLogic.csprojAssemblyReference.cache
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\obj\Debug\netstandard2.0\Bookstoria.AplicationLogic.csproj.CoreCompileInputs.cache
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\obj\Debug\netstandard2.0\Bookstoria.AplicationLogic.AssemblyInfoInputs.cache
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\obj\Debug\netstandard2.0\Bookstoria.AplicationLogic.AssemblyInfo.cs
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\obj\Debug\netstandard2.0\Bookstoria.AplicationLogic.dll
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria.AplicationLogic\obj\Debug\netstandard2.0\Bookstoria.AplicationLogic.pdb
