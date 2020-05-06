@@ -13,6 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Bookstoria.EFDataAccess;
+using Bookstoria.AplicationLogic.Services;
+using Bookstoria.AplicationLogic.Model;
+using Bookstoria.AplicationLogic.Abstractions;
 
 namespace Bookstoria
 {
@@ -37,13 +40,24 @@ namespace Bookstoria
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IAdminRepository, AdminRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
+            services.AddScoped<CustomersServices>();
+            services.AddScoped<AdminService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider services, BookstoriaDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -71,6 +85,43 @@ namespace Bookstoria
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            CreateRoles(services, dbContext).Wait();
+        }
+
+        private async Task CreateRoles(IServiceProvider serviceProvider, BookstoriaDbContext dbContext)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            IdentityResult roleResult;
+           
+            var roleCheck = await RoleManager.RoleExistsAsync("Admin");
+            if (!roleCheck)
+            {
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+            var adminUser = UserManager.FindByEmailAsync("corboianu_cosmin@yahoo.com")
+                                        .GetAwaiter()
+                                        .GetResult();
+            if (adminUser != null)
+            {
+                adminUser.EmailConfirmed = true;
+
+                var result = UserManager.AddToRoleAsync(adminUser, "Admin")
+                            .GetAwaiter()
+                            .GetResult();
+                var admin = new Admin()
+                {
+                    Email = adminUser.Email,
+                    FirstName = "Cosmin",
+                    LastName = "Corboianu",
+                    ID = Guid.NewGuid(),
+                    UserID = Guid.Parse(adminUser.Id),
+                };
+
+                dbContext.Add(admin);
+            }
         }
     }
+
 }

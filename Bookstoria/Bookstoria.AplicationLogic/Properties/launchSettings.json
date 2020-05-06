@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Bookstoria.AplicationLogic": {
+      "commandName": "Project",
+      "sqlDebugging": false
+    }
+  }
+}

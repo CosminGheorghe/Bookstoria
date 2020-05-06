@@ -1,0 +1,16 @@
+﻿@model Bookstoria.Models.Admins.AdminBooksViewModel;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@foreach (var Book in Model.Books)
+{
+    <div>
+        @Book.Title
+        @Book.Author
+        @Book.Image
+    </div>
+}
+
+<a href='@Url.Action("AddBook", "Admin")'>Add Book</a>

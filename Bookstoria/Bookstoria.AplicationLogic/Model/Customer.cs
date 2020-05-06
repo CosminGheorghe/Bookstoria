@@ -8,6 +8,7 @@ namespace Bookstoria.AplicationLogic.Model
     public class Customer 
     {
         public Guid ID { get; set; }
+        public Guid UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

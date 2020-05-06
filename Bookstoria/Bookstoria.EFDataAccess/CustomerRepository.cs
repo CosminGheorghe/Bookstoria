@@ -13,11 +13,13 @@ namespace Bookstoria.EFDataAccess
         {
 
         }
+
         public Customer GetCustomerByUserID(Guid id)
         {
             return dbContext.Customers
                             .Where(customer => customer.ID == id)
                             .SingleOrDefault();
         }
+
     }
 }

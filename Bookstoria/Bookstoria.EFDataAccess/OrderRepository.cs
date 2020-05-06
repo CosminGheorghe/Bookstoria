@@ -13,11 +13,37 @@ namespace Bookstoria.EFDataAccess
         {
 
         }
+
         public Order GetOrderByCustomer(Customer customer)
         {
             return dbContext.Orders
                             .Where(order => order.Customer == customer)
                             .SingleOrDefault();
+        }
+
+        public Order GetOrderByID(string orderID)
+        {
+            return dbContext.Orders
+                            .Where(order => order.ID == Guid.Parse(orderID))
+                            .SingleOrDefault();
+        }
+
+        public ICollection<Book> GetBooksFromOrder(string orderID)
+        {
+            return dbContext.Orders.Where(order => order.ID == Guid.Parse(orderID))
+                            .SingleOrDefault().Books;
+        }
+
+        public double GetOrderPrice(string orderID)
+        {
+            return dbContext.Orders.Where(order => order.ID == Guid.Parse(orderID))
+                            .SingleOrDefault().Price;
+        }
+
+        public double GetOrderQuantity(string orderID)
+        {
+            return dbContext.Orders.Where(order => order.ID == Guid.Parse(orderID))
+                            .SingleOrDefault().Quantity;
         }
     }
 }
