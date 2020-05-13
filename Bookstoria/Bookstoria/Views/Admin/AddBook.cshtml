@@ -27,6 +27,61 @@
     </div>
 
     <div class="row">
+        <div class="col-2">
+            Book Price
+        </div>
+        <div class="col-10">
+            <input class="form-control" type="text" asp-for="Price" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            Book ISBN
+        </div>
+        <div class="col-10">
+            <input class="form-control" type="text" asp-for="ISBN" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            Book CategoryType
+        </div>
+        <div class="col-10">
+            <select id="Category" name="Category">
+                <option value="SF">SF</option>
+                <option value="Comic book">Comic book</option>
+                <option value="History">History</option>
+                <option value="Biography">Biography</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            Book DiscountValue
+        </div>
+        <div class="col-10">
+            <select id="Discount" name="Discount">
+                <option value="0">None</option>
+                <option value="0.10">0.10</option>
+                <option value="0.15">0.15</option>
+                <option value="0.25">0.25</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            Book Image
+        </div>
+        <div class="col-10">
+            <input type="file" asp-for="Image" />
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-10"></div>
         <div class="col-2">
             <button type="submit" class="btn btn-primary">Save</button>

@@ -72,5 +72,17 @@ namespace Bookstoria.AplicationLogic.Services
             bookRepository.Delete(book);
         }
 
+        public void DeleteBookByTitle(string bookTitle)
+        {
+
+            var book = bookRepository.GetBookByTitle(bookTitle);
+            if (book == null)
+            {
+                throw new BookNotFoundException(bookTitle);
+            }
+
+            bookRepository.Delete(book);
+        }
+
     }
 }

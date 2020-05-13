@@ -16,7 +16,7 @@ namespace Bookstoria.EFDataAccess
         public Admin GetAdminByUserID(Guid id)
         {
             return dbContext.Admins
-                            .Where(admin => admin.ID == id)
+                            .Where(admin => admin.UserID == id)
                             .SingleOrDefault();
         }
     }

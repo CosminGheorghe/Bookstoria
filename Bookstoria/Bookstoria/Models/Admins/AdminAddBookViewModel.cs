@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Bookstoria.Models.Admins
 {
@@ -11,7 +12,7 @@ namespace Bookstoria.Models.Admins
         public string Author { get; set; }
         public double Price { get; set; }
         public string ISBN { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         public string CategoryType { get; set; }
         public double DiscountValue { get; set; }
     }

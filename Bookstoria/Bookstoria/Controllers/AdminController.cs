@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Bookstoria.AplicationLogic.Services;
 using Bookstoria.Models.Admins;
@@ -50,10 +52,24 @@ namespace Bookstoria.Controllers
             {
                 return BadRequest();
             }
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), model.Image);
 
-            adminService.AddBook(model.Title, model.Author, model.CategoryType, model.DiscountValue, model.Image, model.ISBN, model.Price);
+            byte[] image = Encoding.ASCII.GetBytes(path);
+            adminService.AddBook(model.Title, model.Author, model.CategoryType, model.DiscountValue, image, model.ISBN, model.Price);
             return Redirect(Url.Action("Index", "Admin"));
 
+        }
+
+        [HttpPost]
+        public IActionResult DeleteBook([FromForm]AdminDeleteBookViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            adminService.DeleteBook(model.Title);
+            return View();
         }
 
     }
