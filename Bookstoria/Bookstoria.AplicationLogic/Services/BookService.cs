@@ -15,7 +15,7 @@ namespace Bookstoria.AplicationLogic.Services
             this.bookRepository = bookRepository;
         }
 
-        public IEnumerable<Book> GetBooks(string customerId)
+        public IEnumerable<Book> GetBooks()
         {
             return bookRepository.GetAll();
         }

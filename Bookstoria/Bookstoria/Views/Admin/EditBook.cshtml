@@ -1,0 +1,74 @@
+﻿@model Bookstoria.Models.Admins.AdminEditBookViewModel
+
+@{
+    ViewData["Title"] = "EditBook";
+}
+
+<h2>EditBook</h2>
+
+<h4>AdminEditBookViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditBook">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ISBN" class="control-label"></label>
+                <input asp-for="ISBN" class="form-control" />
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryType" class="control-label"></label>
+                <select id="Category" name="Category">
+                    <option value="SF">SF</option>
+                    <option value="Comic book">Comic book</option>
+                    <option value="History">History</option>
+                    <option value="Biography">Biography</option>
+                </select>
+                <span asp-validation-for="CategoryType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiscountValue" class="control-label"></label>
+                <select id="DiscountValue" name="DiscountValue">
+                    <option value="0">None</option>
+                    <option value="0.10">0.10</option>
+                    <option value="0.15">0.15</option>
+                    <option value="0.25">0.25</option>
+                </select>
+                <span asp-validation-for="DiscountValue" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input type="file" asp-for="Image" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button>
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </button>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

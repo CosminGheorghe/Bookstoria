@@ -1,7 +1,6 @@
-﻿@model Bookstoria.Models.Home.HomeViewModel
-
+﻿@model Bookstoria.Models.Customers.CustomerViewModel;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
 
 <head>
@@ -54,7 +53,7 @@
                 <div class="col-md-3 product-men">
                     <div class="product-chr-info chr">
                         <div class="thumbnail">
-                            <a >
+                            <a>
                                 <img src="data:image/png;base64, @book.Image" width="100" height="100" alt="">
                             </a>
                         </div>
@@ -98,8 +97,19 @@
                                 </ul>
 
                                 <div class="clearfix"> </div>
+                                <form action="#" method="post">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="chr_item" value="Book12">
+                                    <input type="hidden" name="amount" value="140.00">
+                                    <button type="submit" class="chr-cart pchr-cart">
+                                        Add to cart
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                </form>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

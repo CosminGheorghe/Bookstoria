@@ -12,11 +12,13 @@ namespace Bookstoria.AplicationLogic.Services
     {
         private readonly ICustomerRepository customerRepository;
         private readonly IOrderRepository orderRepository;
+        private readonly IBookRepository bookRepository;
 
-        public CustomersServices(ICustomerRepository customerRepository, IOrderRepository orderRepository)
+        public CustomersServices(ICustomerRepository customerRepository, IOrderRepository orderRepository, IBookRepository bookRepository)
         {
             this.customerRepository = customerRepository;
             this.orderRepository = orderRepository;
+            this.bookRepository = bookRepository;
         }
 
         public void RegisterCustomer(string id, string email, string firstName, string lastName, string phoneNumber, string city, string address)
@@ -34,6 +36,11 @@ namespace Bookstoria.AplicationLogic.Services
             };
 
             customerRepository.Add(customer);
+        }
+
+        public IEnumerable<Book> GetBooks()
+        {
+            return bookRepository.GetAll().AsEnumerable();
         }
     }
 }

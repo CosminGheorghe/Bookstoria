@@ -11,7 +11,7 @@ namespace Bookstoria.AplicationLogic.Model
         public string Author { get; set; }
         public double Price { get; set; }
         public string ISBN { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         public Category Category { get; set; }
         public Discount Discount { get; set; }
     }

@@ -33,6 +33,7 @@ namespace Bookstoria.AplicationLogic.Services
             }
 
             var admin = adminRepository.GetAdminByUserID(userIdGuid);
+            string a = userIdGuid.ToString();
             if (admin == null)
             {
                 throw new EntityNotFoundException(userIdGuid);
@@ -41,7 +42,7 @@ namespace Bookstoria.AplicationLogic.Services
             return admin;
         }
 
-        public void AddBook(string title, string author, string categoryType, double discountValue, byte[] image, string isbn, double price)
+        public void AddBook(string title, string author, string categoryType, double discountValue, string image, string isbn, double price)
         {
             bookRepository.Add(new Book()
             {
@@ -82,6 +83,17 @@ namespace Bookstoria.AplicationLogic.Services
             }
 
             bookRepository.Delete(book);
+        }
+
+        public void EditBook(Book book)
+        {
+            bookRepository.Update(book);
+        }
+
+        public Book GetBook(string bookID)
+        {
+
+            return bookRepository.GetBookByID(Guid.Parse(bookID));
         }
 
     }

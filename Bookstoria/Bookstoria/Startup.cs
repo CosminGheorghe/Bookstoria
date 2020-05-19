@@ -51,6 +51,7 @@ namespace Bookstoria
 
             services.AddScoped<CustomersServices>();
             services.AddScoped<AdminService>();
+            services.AddScoped<BookService>();
             services.AddControllersWithViews();
             services.AddRazorPages();
 
