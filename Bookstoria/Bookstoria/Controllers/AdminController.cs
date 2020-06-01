@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 using Bookstoria.AplicationLogic.Model;
 using Bookstoria.AplicationLogic.Services;
 using Bookstoria.Models.Admins;
+using Bookstoria.Models.Customers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace Bookstoria.Controllers
 {
@@ -19,7 +21,7 @@ namespace Bookstoria.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly AdminService adminService;
-        public AdminController(UserManager<IdentityUser> userManager, AdminService adminService)
+        public AdminController(UserManager<IdentityUser> userManager, AdminService adminService, BookService bookService)
         {
             this.userManager = userManager;
             this.adminService = adminService;
@@ -79,6 +81,12 @@ namespace Bookstoria.Controllers
             return View(bookVM);
         }
 
+        [HttpGet]
+        public IActionResult Checkout([FromRoute]CartVM model)
+        {
+            return View(model);
+        }
+
         [HttpPost]
         public IActionResult DeleteBook([FromForm]AdminDeleteBookViewModel model)
         {
@@ -94,15 +102,15 @@ namespace Bookstoria.Controllers
         [HttpGet]
         public IActionResult EditBook([FromRoute]string id)
         {
-
+            
             var book = adminService.GetBook(id);
             var bookVM = new AdminEditBookViewModel 
             { 
                 ID = book.ID, 
                 Author = book.Author, 
-                CategoryType = null, 
-                DiscountValue = 0,
-
+                CategoryType = book.Category.Type, 
+                DiscountValue = book.Discount.Value ,
+                ImageData = book.Image,
                 ISBN = book.ISBN, 
                 Price = book.Price, 
                 Title = book.Title 
@@ -120,24 +128,31 @@ namespace Bookstoria.Controllers
             {
                 return BadRequest();
             }
-            using (var memoryStream = new MemoryStream())
-            {
-                model.Image.CopyTo(memoryStream);
 
-                image = Convert.ToBase64String(memoryStream.ToArray());
+            if(model.Image!=null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    model.Image.CopyTo(memoryStream);
+
+                    image = Convert.ToBase64String(memoryStream.ToArray());
+                }
             }
+            
 
-            var book = new Book
+            var book = adminService.GetBook(model.ID.ToString());
+            book.Title = model.Title;
+            book.Author = book.Author;
+            book.Category.Type = model.CategoryType;
+            book.Price = model.Price;
+            book.ISBN = model.ISBN;
+
+            book.Discount.Value = model.DiscountValue ;
+            if(!string.IsNullOrEmpty(image))
             {
-                ID = model.ID,
-                Author = model.Author,
-                Category = new Category() { ID = Guid.NewGuid(), Type = model.CategoryType },
-                Discount = new Discount() { ID = Guid.NewGuid(), Value = model.DiscountValue },
-                Image = image,
-                ISBN = model.ISBN,
-                Price = model.Price,
-                Title = model.Title
-            };
+                book.Image = image;
+            }
+            
             adminService.EditBook(book);
             return Redirect(Url.Action("Index", "Admin"));
         }

@@ -21,7 +21,22 @@ namespace Bookstoria.AplicationLogic.Services
 
         public IEnumerable<Book> GetBooks()
         {
-            return bookRepository.GetAll().AsEnumerable();
+            var books= bookRepository.GetAll().AsEnumerable();
+            foreach(var book in books)
+            {
+                try
+                {
+                    var category = bookRepository.GetCategory(book.ID.ToString());
+                    var discount = bookRepository.GetDiscount(book.ID.ToString());
+                    book.Category = category;
+                    book.Discount = discount;
+                }
+                finally
+                {
+                }
+                
+            }
+            return books;
         }
 
         public Admin GetAdminByUserId(string userId)

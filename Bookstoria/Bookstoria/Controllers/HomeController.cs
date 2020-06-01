@@ -61,6 +61,24 @@ namespace Bookstoria.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult SingleBook([FromRoute]string id)
+        {
+            var book = _bookService.GetBook(id);
+            var bookVM = new SingleBookVM
+            {
+                ID = book.ID,
+                Title = book.Title,
+                Author = book.Author,
+                Price = book.Price,
+                ISBN = book.ISBN,
+                ImageData = book.Image,
+                CategoryType = book.Category.Type,
+                DiscountValue = book.Discount.Value,
+            };
+            return View(bookVM);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

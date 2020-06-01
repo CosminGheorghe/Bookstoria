@@ -1,0 +1,16 @@
+﻿@model Bookstoria.Models.Customers.CartVM
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+@if (Model.books != null)
+{
+    @foreach (var book in Model.books)
+    {
+        <div>
+            Title:
+            @book.Title
+        </div>
+    }
+}

@@ -3,4 +3,127 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<head>
+    <title>Bookstoria </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Bookstoria" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Custom Theme files -->
+    <link href="~/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <!-- shop css -->
+    <link href="~/css/shop.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <!-- logo -->
+    <link href="//fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <!-- titles -->
+    <link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+    <!-- body -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <!-- //online-fonts -->
+</head>
+
+<div class="banner-bg-inner">
+    <!-- banner-text -->
+    <div class="banner-text-inner">
+        <div class="container">
+            <h2 class="title-inner">
+                Don't be afraid to ask
+            </h2>
+
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
+<!-- //banner -->
+<!-- breadcrumbs -->
+<div class="crumbs text-center">
+    <div class="container">
+        <div class="row">
+            <ul class="btn-group btn-breadcrumb bc-list">
+                <li class="btn btn1">
+                    <a asp-controller="Home" asp-action="Index">
+                        <i class="glyphicon glyphicon-home"></i>
+                    </a>
+                </li>
+                <li class="btn btn2">
+                    <a asp-controller="Home" asp-action="Privacy">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--//breadcrumbs ends here-->
+<!-- contact -->
+<div class="section contact" id="contact">
+    <div class="container">
+        <h4 class="rad-txt text-center">
+            <span class="abtxt1">contact</span>
+            <span class="abtext">us</span>
+        </h4>
+        <div class="contact-form">
+            
+            <!-- contact map grid -->
+            <div class="col-md-5 map contact-right">
+                <div class="contact-top1">
+                    <h5>get directions</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2853.8389827358524!2d23.7907426514686!3d44.333813479001286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4752d764447efde5%3A0x50c2eaaa622d550!2sBloc%20D21%2C%20Strada%20F%C4%83g%C4%83ra%C8%99%2036%2C%20Craiova%20200158!5e0!3m2!1sro!2sro!4v1585080524517!5m2!1sro!2sro"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+            <!--//contact map grid ends here-->
+            <div class="clearfix"></div>
+        </div>
+        <!-- contact details -->
+        <div class="contact-bottom">
+            <h6>contact info</h6>
+            <!-- contact details left -->
+            <div class="col-md-6 col-sm-6">
+                <div class="contact-left">
+                    <div class="address">
+                        <h5>Address:</h5>
+                        <p>
+                            Fagaras, D21A
+                            <br> Craiova Romania.
+                        </p>
+                    </div>
+                    <div class="address address-mdl">
+                        <h5>phone:</h5>
+                        <p>
+                            +40 723 815 508
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- //contact details left -->
+            <!-- contact details right -->
+            <div class="col-md-6 col-sm-6">
+                <div class="contact-right">
+                    <div class="address">
+                        <h5>Email:</h5>
+                        <p>
+                            <a href="mailto:corboianu_cosmin@yahoo.com">mail@bookstoria.com</a>
+                        </p>
+                    </div>
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- //contact-details right -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- //contact details ends here -->
+    </div>
+</div>

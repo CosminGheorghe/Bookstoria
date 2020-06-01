@@ -15,6 +15,18 @@ namespace Bookstoria.AplicationLogic.Services
         {
             this.orderRepository = orderRepository;
         }
+        
+        public void CreateOrder(Customer customer, ICollection<Book> books, double price, int quantity)
+        {
+            orderRepository.Add(new Order
+            {
+                ID = Guid.NewGuid(),
+                Customer = customer,
+                Books = books,
+                Price = price,
+                Quantity = quantity
+            });
+        }
 
         public IEnumerable<Order> GetOrders(string customerId)
         {

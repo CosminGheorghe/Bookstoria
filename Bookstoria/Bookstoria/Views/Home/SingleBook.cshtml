@@ -1,0 +1,247 @@
+﻿@model Bookstoria.Models.Home.SingleBookVM
+@{
+    ViewData["Title"] = "SingleBook";
+}
+
+<head>
+    <title>Bookstoria</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Bookstoria" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Custom Theme files -->
+    <link href="~/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <!-- shop css -->
+    <link href="~/css/shop.css" type="text/css" rel="stylesheet" media="all">
+    <!-- checkout css -->
+    <link href="~/css/checkout.css" type="text/css" rel="stylesheet" media="all">
+    <!-- Range-slider-css -->
+    <link rel="stylesheet" type="text/css" href="~/css/jquery-ui1.css">
+    <!-- common-css -->
+    <link href="~/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="~/css/font-awesome.css" rel="stylesheet">
+
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <!-- logo -->
+    <link href="//fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <!-- titles -->
+    <link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+    <!-- body -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <!-- //online-fonts -->
+</head>
+
+<div class="banner-bg-inner">
+    <!-- banner-text -->
+    <div class="banner-text-inner">
+        <div class="container">
+            <h2 class="title-inner">
+                world of reading
+            </h2>
+
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <div id="home">
+        <div class="crumbs text-center">
+            <div class="container">
+                <div class="row">
+                    <ul class="btn-group btn-breadcrumb bc-list">
+                        <li class="btn btn1">
+                            <a asp-controller="Home" asp-action="Index">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </a>
+                        </li>
+                        <li class="btn btn2">
+                            <a asp-controller="Home" asp-action="Index">Books</a>
+                        </li>
+                        <li class="btn btn3">
+                            <a asp-controller="Home" asp-action="SingleBook">Single product</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--//breadcrumbs ends here-->
+        <!-- Single -->
+        <div class="innerf-pages section">
+            <div class="container">
+                <div class="col-md-4 single-right-left ">
+                    <div class="grid images_3_of_2">
+                        <div class="flexslider1">
+                            <ul class="slides">
+                                <li data-thumb= src="data:image/png;base64, @Model.ImageData">
+                                    <div class="thumb-image">
+                                        <img src="data:image/png;base64, @Model.ImageData" data-imagezoom="true" alt=" " class="img-responsive">
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-8 single-right-left simpleCart_shelfItem">
+                    <p>
+                        by
+                        <a href="#">@Model.Author</a>
+                    </p>
+                    <div class="caption">
+
+                        
+                        <div class="clearfix"> </div>
+                        <h6>
+                            Price:  @{double actualPrice = Model.Price - Model.DiscountValue * Model.Price;}
+                            @actualPrice &euro;
+                        </h6>
+                        
+                        
+                    </div>
+                    
+                    <div class="occasional">
+                        <h5>Specifications</h5>
+                        <ul class="single_specific">
+                            <li>
+                                <span>Category :</span> @Model.CategoryType
+                            </li>
+                            <li>
+                                <span>ISBN :</span> @Model.ISBN
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+                    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+                    {
+                        <div class="clearfix"></div>
+                        
+                        <div class="occasion-cart">
+                            <div class="chr single-item single_page_b">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="add" value="1">
+                                    <input type="hidden" name="chr_item" value="Single book">
+                                    <input type="hidden" name="amount" value="100.00">
+                                    <button type="submit" class="chr-cart pchr-cart">
+                                        <i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart
+                                    </button>
+                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/jquery-2.2.3.min.js"></script>
+    <!--// Common js -->
+    <!-- cart-js -->
+    <script src="~/js/minicart.js"></script>
+    <script>
+        chr.render();
+
+        chr.cart.on('chr_checkout', function (evt) {
+            var items, len, i;
+
+            if (this.subtotal() > 0) {
+                items = this.items();
+
+                for (i = 0, len = items.length; i < len; i++) { }
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!-- zoom -->
+    <script src="~/js/imagezoom.js"></script>
+    <!-- zoom-->
+    <!-- single -->
+    <!-- FlexSlider -->
+    <script src="~/js/jquery.flexslider.js"></script>
+    <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function () {
+            $('.flexslider1').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+    </script>
+    <!-- //FlexSlider-->
+    <!-- dropdown nav -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //dropdown nav -->
+    <!--search jQuery-->
+    <script src="~/js/main.js"></script>
+    <!--search jQuery-->
+    <!-- Scrolling Nav JavaScript -->
+    <script src="~/js/scrolling-nav.js"></script>
+    <!-- //fixed-scroll-nav-js -->
+    <!--//scripts-->
+    <script src="~/js/bootstrap.js"></script>
+    <!-- start-smoth-scrolling -->
+    <script src="~/js/move-top.js"></script>
+    <script src="~/js/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!-- here stars scrolling icon -->
+    <script>
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- smoothscroll -->
+    <script src="~/js/SmoothScroll.min.js"></script>
+    <!-- //smoothscroll -->
+
+</body>

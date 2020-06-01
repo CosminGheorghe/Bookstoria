@@ -168,3 +168,6 @@ D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria\obj\Debug\netcoreapp3.1\Razor\Ar
 D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria\obj\Debug\netcoreapp3.1\Razor\Views\Admin\DeleteBook.cshtml.g.cs
 D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria\obj\Debug\netcoreapp3.1\Razor\Views\Admin\EditBook.cshtml.g.cs
 D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Index.cshtml.g.cs
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria\obj\Debug\netcoreapp3.1\Razor\Views\Home\SingleBook.cshtml.g.cs
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria\obj\Debug\netcoreapp3.1\Razor\Views\Customer\_AddToCart.cshtml.g.cs
+D:\GitHubRepos\Bookstoria\Bookstoria\Bookstoria\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Checkout.cshtml.g.cs

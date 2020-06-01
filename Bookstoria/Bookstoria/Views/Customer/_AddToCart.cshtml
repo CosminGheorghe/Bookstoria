@@ -1,0 +1,18 @@
+﻿@using Bookstoria.Models.Customers
+@model CartVM
+
+<div>
+    aihdiasiasifhaisfhasfas
+</div>
+
+
+@if (Model.books != null)
+{
+    @foreach (var book in Model.books)
+    {
+        <div>
+            Title:
+            @book.Title
+        </div>
+    }
+}

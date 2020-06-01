@@ -1,4 +1,5 @@
-﻿@model Bookstoria.Models.Customers.CustomerViewModel;
+﻿@using Bookstoria.Models.Customers
+@model CustomerViewModel;
 @{
     ViewData["Title"] = "Index";
 }
@@ -18,17 +19,17 @@
         }
     </script>
     <!-- Custom Theme files -->
-    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
     <!-- shop css -->
-    <link href="css/shop.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/shop.css" type="text/css" rel="stylesheet" media="all">
     <!-- checkout css -->
-    <link href="css/checkout.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/checkout.css" type="text/css" rel="stylesheet" media="all">
     <!-- Range-slider-css -->
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+    <link rel="stylesheet" type="text/css" href="~/css/jquery-ui1.css">
     <!-- common-css -->
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/style.css" type="text/css" rel="stylesheet" media="all">
     <!-- font-awesome icons -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/font-awesome.css" rel="stylesheet">
 
     <!-- //Custom Theme files -->
     <!-- online-fonts -->
@@ -41,6 +42,31 @@
     <!-- //online-fonts -->
 </head>
 
+<div class="banner-bg-agileits">
+    <!-- banner-text -->
+    <div class="banner-text">
+        <div class="container">
+            <p class="b-txt">the</p>
+            <h2 class="title">
+                Library
+            </h2>
+            <ul class="banner-txt">
+                <li>share.</li>
+                <li> explore. </li>
+                <li>amplify.</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
+
+<div class="row mt-4 mb-4 d-flex ">
+    <button class="btn btn-danger" data-toggle="modal" data-target="#addToCartModal">
+        <a asp-controller="Customer" asp-action="Checkout"/>
+            Checkout
+
+    </button>
+</div>
 
 <div class="left-ads-display col-md-9">
     <div class="wrapper_top_shop">
@@ -53,7 +79,7 @@
                 <div class="col-md-3 product-men">
                     <div class="product-chr-info chr">
                         <div class="thumbnail">
-                            <a>
+                            <a asp-controller="Home" asp-action="SingleBook" asp-route-id="@book.ID">
                                 <img src="data:image/png;base64, @book.Image" width="100" height="100" alt="">
                             </a>
                         </div>
@@ -61,38 +87,21 @@
                             <h4>@book.Title</h4>
                             <p>@book.Author</p>
                             <div class="matrlf-mid">
-                                <ul class="rating">
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star gray-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star gray-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                                 <ul class="price-list">
-                                    <li>@book.Price</li>
+                                    <li>@{double actualPrice = book.Price;}
+                                        @if(book.Discount!=null)
+                                        {
+                                            actualPrice = book.Price - book.Discount.Value * book.Price;
+                                        }
+                                        @actualPrice
+                                    </li>
                                     <li>
-                                        @{double a = @book.Price + 30;}
-                                        @a
+                                        @if (actualPrice != book.Price)
+                                        {
+                                            @book.Price
+                                        }
+
                                     </li>
                                 </ul>
 
@@ -102,8 +111,9 @@
                                     <input type="hidden" name="add" value="1">
                                     <input type="hidden" name="chr_item" value="Book12">
                                     <input type="hidden" name="amount" value="140.00">
-                                    <button type="submit" class="chr-cart pchr-cart">
+                                    <button type="submit" onclick="addToCart('@book.ID')"  class="chr-cart pchr-cart">
                                         Add to cart
+
                                         <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                     </button>
                                     <a href="#" data-toggle="modal" data-target="#myModal1"></a>
@@ -123,10 +133,40 @@
 </div>
 <div class="clearfix"></div>
 
+<div>
+    <form asp-controller="Customer" asp-action="AddToCart" data-ajax="true">
+
+        <div class="modal fade" style="margin-top:15rem;" id="addToCartModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog d-flex justify-content-center">
+                <div class="modal-content" >
+                    <div class="modal-body" id="addToCartBody">
+                        @await Html.PartialAsync("_AddToCart.cshtml", new CartVM())
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    var cart = "";
+    function addToCart(id) {
+        cart += id + ";";
+
+        $.ajax({
+            url: "Customer/AddToCart?cart=" + cart,
+
+        });
+        @*"'@Url.Action("AddToCart", "Customer")' + "/" + cart"*@
+    }
+</script>
+@*
 <script src="js/jquery-2.2.3.min.js"></script>
 <!--// Common js -->
 <!-- cart-js -->
 <script src="js/minicart.js"></script>
+
 <script>
     chr.render();
 
@@ -177,17 +217,17 @@
 </script>
 <!-- //dropdown nav -->
 <!--search jQuery-->
-<script src="js/main.js"></script>
+<script src="~/js/main.js"></script>
 <!--search jQuery-->
 <!-- Scrolling Nav JavaScript -->
-<script src="js/scrolling-nav.js"></script>
+<script src="~/js/scrolling-nav.js"></script>
 <!-- //fixed-scroll-nav-js -->
 <!--//scripts-->
 
-<script src="js/bootstrap.js"></script>
+<script src="~/js/bootstrap.js"></script>
 <!-- start-smoth-scrolling -->
-<script src="js/move-top.js"></script>
-<script src="js/easing.js"></script>
+<script src="~/js/move-top.js"></script>
+<script src="~/js/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -219,5 +259,6 @@
 </script>
 <!-- //here ends scrolling icon -->
 <!-- smoothscroll -->
-<script src="js/SmoothScroll.min.js"></script>
+<script src="~/js/SmoothScroll.min.js"></script>
 <!-- //smoothscroll -->
+    *@

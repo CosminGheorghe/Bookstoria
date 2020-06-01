@@ -13,5 +13,6 @@ namespace Bookstoria.AplicationLogic.Abstractions
         string GetTitle(string bookID);
         double GetPrice(string bookID);
         Category GetCategory(string bookID);
+        Discount GetDiscount(string bookID);
     }
 }

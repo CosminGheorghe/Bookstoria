@@ -20,17 +20,17 @@
         }
     </script>
     <!-- Custom Theme files -->
-    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
     <!-- shop css -->
-    <link href="css/shop.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/shop.css" type="text/css" rel="stylesheet" media="all">
     <!-- checkout css -->
-    <link href="css/checkout.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/checkout.css" type="text/css" rel="stylesheet" media="all">
     <!-- Range-slider-css -->
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+    <link rel="stylesheet" type="text/css" href="~/css/jquery-ui1.css">
     <!-- common-css -->
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/css/style.css" type="text/css" rel="stylesheet" media="all">
     <!-- font-awesome icons -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/font-awesome.css" rel="stylesheet">
 
     <!-- //Custom Theme files -->
     <!-- online-fonts -->
@@ -43,7 +43,23 @@
     <!-- //online-fonts -->
 </head>
 
-
+<div class="banner-bg-agileits">
+    <!-- banner-text -->
+    <div class="banner-text">
+        <div class="container">
+            <p class="b-txt">the</p>
+            <h2 class="title">
+                Library
+            </h2>
+            <ul class="banner-txt">
+                <li>share.</li>
+                <li> explore. </li>
+                <li>amplify.</li>
+            </ul>
+        </div>
+    </div>
+    <!-- //banner-text -->
+</div>
 <div class="left-ads-display col-md-9">
     
     <div class="wrapper_top_shop">
@@ -57,7 +73,7 @@
                 <div class="col-md-3 product-men">
                     <div class="product-chr-info chr">
                         <div class="thumbnail">
-                            <a>
+                            <a asp-controller="Home" asp-action="SingleBook" asp-route-id="@book.ID">
                                 <img src="data:image/png;base64, @book.Image" width="100" height="100" alt="">
                             </a>
                         </div>
@@ -65,38 +81,17 @@
                             <h4>@book.Title</h4>
                             <p>@book.Author</p>
                             <div class="matrlf-mid">
-                                <ul class="rating">
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star gray-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="fa fa-star gray-star" aria-hidden="true"></span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                                 <ul class="price-list">
-                                    <li>@book.Price</li>
+                                    <li>@{double actualPrice = book.Price - book.Discount.Value * book.Price;}
+                                        @actualPrice
+                                    </li>
                                     <li>
-                                        @{double a = @book.Price + 30;}
-                                        @a
+                                        @if (actualPrice != book.Price)
+                                        {
+                                            @book.Price
+                                        }
+
                                     </li>
                                 </ul>
 
@@ -132,10 +127,10 @@
 
     <div class="clearfix"></div>
                                             
-    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="~/js/jquery-2.2.3.min.js"></script>
     <!--// Common js -->
     <!-- cart-js -->
-    <script src="js/minicart.js"></script>
+    <script src="~/js/minicart.js"></script>
     <script>
         chr.render();
 
@@ -151,7 +146,7 @@
     </script>
     <!-- //cart-js -->
     <!-- price range (top products) -->
-    <script src="js/jquery-ui.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
     <script>
         //<![CDATA[
         $(window).load(function () {
@@ -186,17 +181,17 @@
     </script>
     <!-- //dropdown nav -->
     <!--search jQuery-->
-    <script src="js/main.js"></script>
+    <script src="~/js/main.js"></script>
     <!--search jQuery-->
     <!-- Scrolling Nav JavaScript -->
-    <script src="js/scrolling-nav.js"></script>
+    <script src="~/js/scrolling-nav.js"></script>
     <!-- //fixed-scroll-nav-js -->
     <!--//scripts-->
 
-    <script src="js/bootstrap.js"></script>
+    <script src="~/js/bootstrap.js"></script>
     <!-- start-smoth-scrolling -->
-    <script src="js/move-top.js"></script>
-    <script src="js/easing.js"></script>
+    <script src="~/js/move-top.js"></script>
+    <script src="~/js/easing.js"></script>
     <script>
         jQuery(document).ready(function ($) {
             $(".scroll").click(function (event) {
@@ -228,5 +223,5 @@
     </script>
     <!-- //here ends scrolling icon -->
     <!-- smoothscroll -->
-    <script src="js/SmoothScroll.min.js"></script>
+    <script src="~/js/SmoothScroll.min.js"></script>
     <!-- //smoothscroll -->

@@ -41,7 +41,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,10 +49,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="css\" />
-    <Folder Include="fonts\" />
-    <Folder Include="js\" />
-    <Folder Include="images\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,6 +65,60 @@
     <None Include="wwwroot\css\jquery.desoslide.css" />
     <None Include="wwwroot\css\shop.css" />
     <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\images\a1.jpg" />
+    <None Include="wwwroot\images\b1.jpg" />
+    <None Include="wwwroot\images\b2.jpg" />
+    <None Include="wwwroot\images\banner.jpg" />
+    <None Include="wwwroot\images\c2.jpg" />
+    <None Include="wwwroot\images\close_1.jpg" />
+    <None Include="wwwroot\images\desoslide_controls.png" />
+    <None Include="wwwroot\images\earth2.jpg" />
+    <None Include="wwwroot\images\ee.jpg" />
+    <None Include="wwwroot\images\f1.png" />
+    <None Include="wwwroot\images\f2.png" />
+    <None Include="wwwroot\images\f3.png" />
+    <None Include="wwwroot\images\f4.png" />
+    <None Include="wwwroot\images\img-sp.png" />
+    <None Include="wwwroot\images\l1.jpg" />
+    <None Include="wwwroot\images\l2.jpg" />
+    <None Include="wwwroot\images\l3.jpg" />
+    <None Include="wwwroot\images\l4.jpg" />
+    <None Include="wwwroot\images\l5.jpg" />
+    <None Include="wwwroot\images\l6.jpg" />
+    <None Include="wwwroot\images\l7.jpg" />
+    <None Include="wwwroot\images\lc.jpg" />
+    <None Include="wwwroot\images\lib1.jpg" />
+    <None Include="wwwroot\images\lib2.jpg" />
+    <None Include="wwwroot\images\lib3.jpg" />
+    <None Include="wwwroot\images\lib4.jpg" />
+    <None Include="wwwroot\images\lib5.jpg" />
+    <None Include="wwwroot\images\lib6.jpg" />
+    <None Include="wwwroot\images\lib7.jpg" />
+    <None Include="wwwroot\images\lib8.jpg" />
+    <None Include="wwwroot\images\lt1.jpg" />
+    <None Include="wwwroot\images\lt2.jpg" />
+    <None Include="wwwroot\images\lt3.jpg" />
+    <None Include="wwwroot\images\lt4.jpg" />
+    <None Include="wwwroot\images\lt5.jpg" />
+    <None Include="wwwroot\images\lt6.jpg" />
+    <None Include="wwwroot\images\lt7.jpg" />
+    <None Include="wwwroot\images\move-top.png" />
+    <None Include="wwwroot\images\s1.jpg" />
+    <None Include="wwwroot\images\s2.jpg" />
+    <None Include="wwwroot\images\s3.png" />
+    <None Include="wwwroot\images\t2.jpg" />
+    <None Include="wwwroot\images\test2.jpg" />
+    <None Include="wwwroot\images\wnw1.jpg" />
+    <None Include="wwwroot\images\wnw2.jpg" />
+    <None Include="wwwroot\images\wnw3.jpg" />
     <None Include="wwwroot\js\bootstrap.js" />
     <None Include="wwwroot\js\creditly.js" />
     <None Include="wwwroot\js\demo.js" />
